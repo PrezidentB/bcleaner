@@ -1,0 +1,26 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bcleaner"
+version = "1.0.0"
+description = "Mini CCleaner for a project in school."
+readme = "README.md"
+authors = [{ name = "BIOJOUT, FOUILLEE", email = "anon@mail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+
+keywords = ["BSI", "cleaner", "project", "school"]
+
+requires-python = ">=3.9"
+
+dependencies = [
+    "argparse >= 1.1"
+]
