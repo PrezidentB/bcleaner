@@ -10,7 +10,7 @@ def install():
         f.write(f"""[Unit]
 Description=Bcleaner Service
 Before=shutdown.target reboot.target
-                
+              
 [Service]
 Type=Oneshot
 RemainAfterExit=true
