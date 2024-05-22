@@ -11,7 +11,7 @@ def install():
         os.makedirs(f'{home}/.config/systemd/user')
     
     if not os.path.exists(f'{cwd}/../logs'):
-        print("Creating directory log directory.")
+        print("Creating log directory.")
         os.makedirs(f'{cwd}/../logs')
         
     # Install the Bcleaner service
