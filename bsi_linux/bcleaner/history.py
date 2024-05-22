@@ -2,8 +2,8 @@ import os
 
 def bash_history(args: dict,home: str):
     # Chemin vers le fichier d'historique des commandes
-    bash_history_path = home + "/.fake_history"
-    python_history_path = home + "/.gne_history"
+    bash_history_path = home + "/.fake_history" # for testing purposes
+    python_history_path = home + "/.gne_history" # for testing purposes
 
     if args['bash_hist']:
         # Vérifier si le fichier d'historique des commandes existe
