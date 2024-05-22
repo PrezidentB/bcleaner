@@ -1,4 +1,7 @@
 import os
+import logging
+
+logging.basicConfig(filename='bcleaner.log', filemode='w', format='%(asctime)s - %(message)s' ,level=logging.INFO)
 
 def delete_temp_file(args: dict):
     # Demander à l'utilisateur de saisir le chemin du fichier temporaire
@@ -15,5 +18,5 @@ def delete_temp_file(args: dict):
         else:
             print(f"Le chemin '{temporary_file_path}' ne correspond à aucun fichier existant.")
     else:
-        print("Aucun fichier temporaire à supprimer.")
+        logging.info("Aucun fichier temporaire à supprimer.")
         return 1

@@ -1,4 +1,7 @@
 import os
+import logging
+
+logging.basicConfig(filename='bcleaner.log', filemode='w', format='%(asctime)s - %(message)s' ,level=logging.INFO)
 
 def bash_history(args: dict,home: str):
     # Chemin vers le fichier d'historique des commandes
@@ -12,7 +15,7 @@ def bash_history(args: dict,home: str):
                 # Ouvrir le fichier d'historique et le vider
                 with open(bash_history_path, 'w'):
                     pass
-                print("Bash history cleared.")
+                logging.info("Bash history cleared.")
             except Exception as e:
                 raise EnvironmentError(f"Error when clearing file : {e}")
         else:
@@ -23,11 +26,11 @@ def bash_history(args: dict,home: str):
             try:
                 with open(python_history_path, 'w'):
                     pass
-                print("Python history cleared.")
+                logging.info("Python history cleared.")
             except Exception as e:
                 raise EnvironmentError(f"Error when clearing file : {e}")
         else:
             print(f"File '{python_history_path}' not found.")
     else:
-        print("No history to clear.")
+        logging.info("No history to clear.")
         return 1
