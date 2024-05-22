@@ -6,5 +6,5 @@ def get_euid():
     home = os.path.expanduser(f'~{username}')
     if euid == 0:
         raise PermissionError("You might want to run this script normally, not as sudo.")
-    print(f"Running as sudo: {username} with home directory: {home}")
+    print(f"Running as : {username} with home directory: {home}")
     return home
