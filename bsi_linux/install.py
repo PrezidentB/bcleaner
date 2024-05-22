@@ -26,7 +26,7 @@ RemainAfterExit=yes
 ExecStop=/usr/bin/python3 {cwd}/main.py
                 
 [Install]
-WantedBy=multi-user.target \n""")
+WantedBy=default.target \n""")
     
     print("Service installed successfully.")
     print("To reload the service, run 'systemctl --user daemon-reload'")
