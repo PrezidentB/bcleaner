@@ -1,5 +1,6 @@
 import argparse
 import sys
+import logging
 
 #### COLOR CONSTANT ####
 BOLD = "\033[1m"
@@ -20,6 +21,8 @@ banner = f"""{BLUE}
 ██████╔╝╚██████╗███████╗███████╗██║  ██║██║ ╚████║███████╗██║  ██║
 ╚═════╝  ╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝{END} """
 
+logging.basicConfig(filename='./bcleaner/logs/bcleaner.log', filemode='w', format='%(asctime)s - %(message)s' ,level=logging.INFO)
+
 def start():
     print(banner)
     args = parsing_args()
@@ -30,7 +33,7 @@ def start():
 
 def parsing_args():
     if len(sys.argv) == 1:
-        print('No arguments given. Use -h or --help for help.')
+        logging.info('No arguments given. Use -h or --help for help.')
         sys.exit(1)
     parser = argparse.ArgumentParser(description='A mini CCleaner by BSI team.')
     parser.add_argument('-a', '--apps', action='store_true', help='Delete a list of app files in ~/.cache/')

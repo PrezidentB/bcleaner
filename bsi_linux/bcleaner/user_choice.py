@@ -1,7 +1,7 @@
 import os
 import logging
 
-logging.basicConfig(filename='../logs/bcleaner.log', filemode='w', format='%(asctime)s - %(message)s' ,level=logging.INFO)
+logging.basicConfig(filename='./bcleaner/logs/bcleaner.log', filemode='w', format='%(asctime)s - %(message)s' ,level=logging.INFO)
 
 def delete_temp_file(args: dict):
     # Demander à l'utilisateur de saisir le chemin du fichier temporaire

@@ -23,7 +23,8 @@ Before=shutdown.target reboot.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStop=/usr/bin/python3 {cwd}/main.py
+ExecStart=whoami
+ExecStop=/usr/bin/python3 {cwd}/main.py -a -bh -ph
                 
 [Install]
 WantedBy=default.target \n""")

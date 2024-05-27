@@ -2,8 +2,7 @@ import os
 import logging
 from pprint import pprint
 
-logging.basicConfig(filename='../logs/bcleaner.log', filemode='w', format='%(asctime)s - %(message)s' ,level=logging.INFO)
-
+logging.basicConfig(filename='./bcleaner/logs/bcleaner.log', filemode='w', format='%(asctime)s - %(message)s' ,level=logging.INFO)
 
 def cached_apps(args: dict, home_dir: str):
     if args['apps']:
