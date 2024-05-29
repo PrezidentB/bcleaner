@@ -2,16 +2,18 @@ import os
 import logging
 from pprint import pprint
 
+# Logging configuration 
 logging.basicConfig(filename='./bcleaner/logs/bcleaner.log', filemode='w', format='%(asctime)s - %(message)s' ,level=logging.INFO)
 
 def cached_apps(args: dict, home_dir: str):
     if args['apps']:
         logging.info('Deleting files in ~/.cache directory.')
-        cache_path = home_dir + '/.cache'
         
+        cache_path = home_dir + '/.cache'
         subfolders = [f.path for f in os.scandir(cache_path) if f.is_dir()]
         subfiles = [f.path for f in os.scandir(cache_path) if f.is_file()]
 
+        # iterate over the subfolders and subfiles
         for folder in subfolders:
             try:
                 os.rmdir(folder)
