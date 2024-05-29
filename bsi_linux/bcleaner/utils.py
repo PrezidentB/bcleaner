@@ -37,6 +37,7 @@ def parsing_args():
     parser.add_argument('-c', '--cookies', action='store_true', help='Delete your browser cookies.')
     parser.add_argument('-bh', '--bash_hist', action='store_true', help='Clear up bash_history file.')
     parser.add_argument('-ph', '--python_hist', action='store_true', help='Clear up python_history file (Might not work on all systems).')
+    parser.add_argument('-kh', '--known_hosts', action='store_true', help='Delete your ssh known_hosts file.')
     args = parser.parse_args()
     return args
 
@@ -49,6 +50,7 @@ def install(args: dict):
     cook = ''
     bash = ''
     python = ''
+    ssh = ''
     home = get_euid()
     cwd = os.getcwd()
 
@@ -73,6 +75,8 @@ def install(args: dict):
                 bash = '-bh'
             if key == 'python_hist':
                 python = '-ph'
+            if key == 'known_hosts':
+                ssh = '-kh'
 
     # Install the Bcleaner service.
     with open(f'{home}/.config/systemd/user/bcleaner.service', 'w') as f:
@@ -84,7 +88,7 @@ Before=shutdown.target reboot.target
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/python3 {cwd}/verif_main.py
-ExecStop=/usr/bin/python3 {cwd}/main.py {apps} {cook} {bash} {python}
+ExecStop=/usr/bin/python3 {cwd}/main.py {apps} {cook} {bash} {python} {ssh}
 
 [Install]
 WantedBy=default.target\n""")
