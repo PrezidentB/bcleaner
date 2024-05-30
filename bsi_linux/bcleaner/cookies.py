@@ -15,7 +15,7 @@ def browser_cookie(args: dict, home_dir: str):
             firefox = home_dir + '/.mozilla/firefox/'
             subfolders = [f.name for f in os.scandir(firefox) if f.is_dir()]
             # Only in the default-release folder
-            match = [m for m in subfolders if re.match(r'.*.default-release', m)]
+            match = [m for m in subfolders if re.match(r'.*.default-[a-zA-Z]', m)]
             cookies = firefox + "".join(match) + '/cookies.sqlite'
 
             logging.info(f"Deleting cookies from {cookies}")
