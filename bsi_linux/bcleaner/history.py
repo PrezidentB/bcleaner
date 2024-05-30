@@ -6,8 +6,8 @@ logging.basicConfig(filename='./bcleaner/logs/bcleaner.log', filemode='w', forma
 
 def cmd_history(args: dict,home: str):
     # Path to the bash history file and the python history file
-    bash_history_path = home + "/.fake_history" # for testing purposes
-    python_history_path = home + "/.gne_history" # for testing purposes
+    bash_history_path = home + "/.bash_history" # for testing purposes
+    python_history_path = home + "/.python_history" # for testing purposes
 
     if args['bash_hist']:
         # Check if the file exists
